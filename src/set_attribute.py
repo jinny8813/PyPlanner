@@ -1,8 +1,10 @@
 from attributes.background_color import get_bg_color_info
 from attributes.start_date_day import get_start_day_info
+from attributes.theme_colors import get_theme_colors_info
 
 user_choice = {"start_day": "monday",
-               "bg_color": "light"}
+               "bg_color": "light",
+               "theme_colors": "mint"}
 
 start_day_info = get_start_day_info(user_choice["start_day"])
 orig_week_list = start_day_info["week_list"]
@@ -20,3 +22,6 @@ orig_font_color_page_title = bg_color_info["font_color_page_title"]
 orig_font_color_element = bg_color_info["font_color_element"]
 orig_nav_bg_color = bg_color_info["nav_bg_color"]
 orig_nav_bg_font_color = bg_color_info["nav_bg_font_color"]
+
+theme_colors_info = get_theme_colors_info(user_choice["theme_colors"])
+orig_theme_colors = theme_colors_info["colors"]
