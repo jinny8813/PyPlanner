@@ -17,6 +17,6 @@ orig_week_number = start_day_info["week_number"]
 bg_color_info = get_bg_color_info(user_choice["bg_color"])
 orig_font_color_section = bg_color_info["font_color_section"]
 orig_font_color_page_title = bg_color_info["font_color_page_title"]
-orig_font_color_C = bg_color_info["font_color_C"]
+orig_font_color_element = bg_color_info["font_color_element"]
 orig_nav_bg_color = bg_color_info["nav_bg_color"]
 orig_nav_bg_font_color = bg_color_info["nav_bg_font_color"]
