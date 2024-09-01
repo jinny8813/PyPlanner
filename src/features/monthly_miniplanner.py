@@ -12,6 +12,7 @@ from attributes.language import lunar_content
 def create_miniplanner_slides(prs, ppt_count):
     lunar_count = orig_lunar_diary_count
     today = orig_start_month
+    today2 = orig_start_month
     day = orig_start_date
     this_month = orig_start_month
     for i in range(12):
@@ -24,9 +25,12 @@ def create_miniplanner_slides(prs, ppt_count):
         side_left = Pt(32)
         for j in range(31):
             if j < calendar.monthrange(this_month.year,this_month.month)[1]:
-                set_date_element(slide,str(j+1),side_left, side_top, width, height)
+                set_date_element(slide,today2.strftime("%#d"),side_left, side_top, width, height)
+                set_date_element(slide,today2.strftime("%a")[0],side_left+width, side_top, width, height)
+                today2 += timedelta(days=1)
             else:
                 set_date_element(slide,"/",side_left, side_top, width, height)
+                set_date_element(slide,"/",side_left+width, side_top, width, height)
             side_top += height
         mini_day_top = Pt(103)
         mini_day_left = Pt(212)
