@@ -4,6 +4,7 @@ from attributes.theme_colors import get_theme_colors_info
 
 user_choice = {"start_day": "monday",
                "bg_color": "light",
+               "language": "lunar",
                "theme_colors": "mint"}
 
 start_day_info = get_start_day_info(user_choice["start_day"])
@@ -22,6 +23,10 @@ orig_font_color_page_title = bg_color_info["font_color_page_title"]
 orig_font_color_element = bg_color_info["font_color_element"]
 orig_nav_bg_color = bg_color_info["nav_bg_color"]
 orig_nav_bg_font_color = bg_color_info["nav_bg_font_color"]
+
+if user_choice["language"] != "lunar":
+    orig_lunar_calender_count = None
+    orig_lunar_diary_count = None
 
 theme_colors_info = get_theme_colors_info(user_choice["theme_colors"])
 orig_theme_colors = theme_colors_info["colors"]

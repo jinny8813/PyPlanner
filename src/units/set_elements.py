@@ -15,3 +15,12 @@ def set_date_element(slide,date_value,left, top, width, height, lunar_text=None)
         run = p.add_run()
         run.text = " " + lunar_text
         run.font.size = Pt(8)
+
+def set_lunar_element(slide,lunar_text,left, top, width, height):
+    tb = slide.shapes.add_textbox(left, top, width, height)
+    p = tb.text_frame.paragraphs[0]
+    p.text = lunar_text
+    p.font.size = Pt(8)
+    p.font.name = "Arial"
+    p.font.color.rgb = orig_font_color_element
+    p.alignment = PP_ALIGN.CENTER
