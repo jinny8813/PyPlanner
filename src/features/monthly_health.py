@@ -7,13 +7,13 @@ from units.set_titles import set_page_title
 from units.set_elements import set_date_element
 from set_attribute import orig_start_month
 
-def create_finances_slides(prs, ppt_count):
+def create_health_slides(prs, ppt_count):
     today2 = orig_start_month
     this_month = orig_start_month
     for i in range(12):
-        layout = prs.slide_layouts[5]
+        layout = prs.slide_layouts[6]
         slide = prs.slides.add_slide(layout)
-        set_page_title(slide,"{} {} Finances".format(this_month.strftime("%Y"),this_month.strftime("%B")))
+        set_page_title(slide,"{} {} Health".format(this_month.strftime("%Y"),this_month.strftime("%B")))
         height = Pt(20)
         width = Pt(20)
         side_top = Pt(103)
