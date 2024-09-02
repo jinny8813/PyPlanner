@@ -9,17 +9,17 @@ from set_attribute import orig_start_week,orig_start_date
 from set_attribute import orig_lunar_calender_count
 from attributes.language import lunar_content
 
-def create_todolist_slides(prs, ppt_count):
+def create_timeline_slides(prs, ppt_count):
     today = orig_start_date
     this_year = int(today.strftime("%Y"))
     lunar_count = orig_lunar_calender_count
     week_count = orig_start_week
     while today < orig_start_date+relativedelta(years=1):
-        layout = prs.slide_layouts[8]
+        layout = prs.slide_layouts[9]
         slide = prs.slides.add_slide(layout)
         if week_count == 1 and orig_start_week !=1:
             this_year += 1        
-        set_page_title(slide,"{} Week {} TodoList".format(this_year,week_count))
+        set_page_title(slide,"{} Week {} Timeline".format(this_year,week_count))
         top = Pt(83)
         left = Pt(152)
         height = Pt(20)
