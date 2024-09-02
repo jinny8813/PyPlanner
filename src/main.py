@@ -10,6 +10,7 @@ from features.monthly_tracker import create_tracker_slides
 from features.monthly_gallery import create_gallery_slides
 from features.monthly_finances import create_finances_slides
 from features.monthly_health import create_health_slides
+from features.monthly_energy import create_energy_slides
 
 my_index_list = []
 ppt_count = 0
@@ -22,6 +23,7 @@ ppt_count = create_index_slides(prs, my_index_list, ppt_count, "Index", ["Index"
 
 ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Calendar"], ["Monthly | Calendar","月行事曆"])
 ppt_count = create_main_calendar_slides(prs, ppt_count)
+
 ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","MiniPlanner"], ["Monthly | MiniPlanner","月迷你規劃"])
 ppt_count = create_miniplanner_slides(prs, ppt_count)
 ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Project"], ["Monthly | Project","月專案管理"])
@@ -34,6 +36,8 @@ ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Fi
 ppt_count = create_finances_slides(prs, ppt_count)
 ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Health"], ["Monthly | Health","月健康管理"])
 ppt_count = create_health_slides(prs, ppt_count)
+ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Energy"], ["Monthly | Energy","月能量管理"])
+ppt_count = create_energy_slides(prs, ppt_count)
 
 ppt_count = create_back_cover_slides(prs, my_index_list, ppt_count, ["The Blueprint","封底"])
 
