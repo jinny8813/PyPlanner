@@ -6,6 +6,7 @@ from features.chapter_page import create_calendar_slides
 from features.main_calendar import create_main_calendar_slides
 from features.monthly_miniplanner import create_miniplanner_slides
 from features.monthly_project import create_project_slides
+from features.monthly_tracker import create_tracker_slides
 
 my_index_list = []
 ppt_count = 0
@@ -22,6 +23,8 @@ ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Mi
 ppt_count = create_miniplanner_slides(prs, ppt_count)
 ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Project"], ["Monthly | Project","月專案管理"])
 ppt_count = create_project_slides(prs, ppt_count)
+ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Tracker"], ["Monthly | Tracker","月習慣追蹤"])
+ppt_count = create_tracker_slides(prs, ppt_count)
 
 ppt_count = create_back_cover_slides(prs, my_index_list, ppt_count, ["The Blueprint","封底"])
 
