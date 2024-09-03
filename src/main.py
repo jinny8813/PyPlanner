@@ -1,6 +1,8 @@
 import os
 from pptx import Presentation
 
+from set_attribute import orig_selected_w_types
+
 from features.book_cover import create_front_cover_slides, create_back_cover_slides, create_index_slides
 from features.chapter_page import create_calendar_slides, create_section_slides
 from features.yearly_overview import create_yaag_slides,create_gc_slides
@@ -55,23 +57,51 @@ ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","He
 ppt_count = create_health_slides(prs, ppt_count)
 ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Energy"], ["Monthly | Energy","月能量管理"])
 ppt_count = create_energy_slides(prs, ppt_count)
-
-ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","TodoList"], ["Weekly | TodoList","週待辦清單"])
-ppt_count = create_todolist_slides(prs, ppt_count)
-ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Timeline"], ["Weekly | Timeline","週時間軸"])
-ppt_count = create_timeline_slides(prs, ppt_count)
-ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Grid"], ["Weekly | Grid","週八分格"])
-ppt_count = create_grid_slides(prs, ppt_count)
-ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","AnyNotes"], ["Weekly | AnyNotes","週札記"])
-ppt_count = create_anynotes_slides(prs, ppt_count)
-ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Overview"], ["Weekly | Overview","週總覽"])
-ppt_count = create_overview_slides(prs, ppt_count)
-ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Budget"], ["Weekly | Budget","週記帳"])
-ppt_count = create_budget_slides(prs, ppt_count)
-ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Health"], ["Weekly | Health","週健康"])
-ppt_count = create_w_health_slides(prs, ppt_count)
-ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Energy"], ["Weekly | Energy","週能量"])
-ppt_count = create_w_energy_slides(prs, ppt_count)
+print(2)
+# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","TodoList"], ["Weekly | TodoList","週待辦清單"])
+# ppt_count = create_todolist_slides(prs, ppt_count)
+# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Timeline"], ["Weekly | Timeline","週時間軸"])
+# ppt_count = create_timeline_slides(prs, ppt_count)
+# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Grid"], ["Weekly | Grid","週八分格"])
+# ppt_count = create_grid_slides(prs, ppt_count)
+# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","AnyNotes"], ["Weekly | AnyNotes","週札記"])
+# ppt_count = create_anynotes_slides(prs, ppt_count)
+# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Overview"], ["Weekly | Overview","週總覽"])
+# ppt_count = create_overview_slides(prs, ppt_count)
+# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Budget"], ["Weekly | Budget","週記帳"])
+# ppt_count = create_budget_slides(prs, ppt_count)
+# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Health"], ["Weekly | Health","週健康"])
+# ppt_count = create_w_health_slides(prs, ppt_count)
+# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Energy"], ["Weekly | Energy","週能量"])
+# ppt_count = create_w_energy_slides(prs, ppt_count)
+slide_functions = {
+    "TodoList": create_todolist_slides,
+    "Timeline": create_timeline_slides,
+    "Grid": create_grid_slides,
+    "AnyNotes": create_anynotes_slides,
+    "Overview": create_overview_slides,
+    "Budget": create_budget_slides,
+    "Health": create_w_health_slides,
+    "Energy": create_w_energy_slides
+}
+journal_types = [
+    ("TodoList", "Weekly | TodoList", "週待辦清單"),
+    ("Timeline", "Weekly | Timeline", "週時間軸"),
+    ("Grid", "Weekly | Grid", "週八分格"),
+    ("AnyNotes", "Weekly | AnyNotes", "週札記"),
+    ("Overview", "Weekly | Overview", "週總覽"),
+    ("Budget", "Weekly | Budget", "週記帳"),
+    ("Health", "Weekly | Health", "週健康"),
+    ("Energy", "Weekly | Energy", "週能量")
+]
+for j_type, title_en, title_zh in journal_types:
+    if j_type in orig_selected_w_types:
+        print(f"Before create_calendar_slides: ppt_count = {ppt_count}")
+        ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal", j_type], [title_en, title_zh])
+        print(f"After create_calendar_slides: ppt_count = {ppt_count}")
+        print(f"Before {j_type} slide function: ppt_count = {ppt_count}")
+        ppt_count = slide_functions[j_type](prs, ppt_count)
+        print(f"After {j_type} slide function: ppt_count = {ppt_count}")
 
 ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Diary"], ["Daily | Diary","日記"])
 ppt_count = create_diary_slides(prs, ppt_count)
