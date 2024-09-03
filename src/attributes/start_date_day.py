@@ -9,7 +9,7 @@ def get_start_day_info(start_day):
             "start_day": "Monday",
             "lunar_calender_count": 365,
             "lunar_diary_count": 367,
-            "start_week": int(date(2024, 1, 1).strftime("%W")),
+            "start_week": 1,
             "week_number":[
                     [1, 2, 3, 4, 5],
                     [5, 6, 7, 8, 9],
@@ -31,7 +31,7 @@ def get_start_day_info(start_day):
             "start_day": "Sunday",
             "lunar_calender_count": 364,
             "lunar_diary_count": 366,
-            "start_week": int(date(2024, 12, 29).strftime("%U"))+1,
+            "start_week": 1,
             "week_number":[
                     [1, 2, 3, 4, 5],
                     [5, 6, 7, 8, 9],

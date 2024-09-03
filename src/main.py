@@ -13,6 +13,7 @@ from features.monthly_health import create_health_slides
 from features.monthly_energy import create_energy_slides
 from features.weekly_todolist import create_todolist_slides
 from features.weekly_timeline import create_timeline_slides
+from features.weekly_grid import create_grid_slides
 
 my_index_list = []
 ppt_count = 0
@@ -45,6 +46,8 @@ ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","To
 ppt_count = create_todolist_slides(prs, ppt_count)
 ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Timeline"], ["Weekly | Timeline","週時間軸"])
 ppt_count = create_timeline_slides(prs, ppt_count)
+ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Grid"], ["Weekly | Grid","週八分格"])
+ppt_count = create_grid_slides(prs, ppt_count)
 
 ppt_count = create_back_cover_slides(prs, my_index_list, ppt_count, ["The Blueprint","封底"])
 
