@@ -18,6 +18,7 @@ from features.weekly_anynotes import create_anynotes_slides
 from features.weekly_overview import create_overview_slides
 from features.weekly_budget import create_budget_slides
 from features.weekly_health import create_health_slides as create_w_health_slides
+from features.weekly_energy import create_energy_slides as create_w_energy_slides
 
 my_index_list = []
 ppt_count = 0
@@ -60,6 +61,8 @@ ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Bu
 ppt_count = create_budget_slides(prs, ppt_count)
 ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Health"], ["Weekly | Health","週健康"])
 ppt_count = create_w_health_slides(prs, ppt_count)
+ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Energy"], ["Weekly | Energy","週能量"])
+ppt_count = create_w_energy_slides(prs, ppt_count)
 
 ppt_count = create_back_cover_slides(prs, my_index_list, ppt_count, ["The Blueprint","封底"])
 
