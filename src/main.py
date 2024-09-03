@@ -3,6 +3,7 @@ from pptx import Presentation
 
 from features.book_cover import create_front_cover_slides, create_back_cover_slides, create_index_slides
 from features.chapter_page import create_calendar_slides, create_section_slides
+from features.yearly_overview import create_yaag_slides,create_gc_slides
 from features.main_calendar import create_main_calendar_slides
 from features.monthly_miniplanner import create_miniplanner_slides
 from features.monthly_project import create_project_slides
@@ -33,6 +34,10 @@ ppt_count = create_front_cover_slides(prs, my_index_list, ppt_count, ["The Bluep
 ppt_count = create_index_slides(prs, my_index_list, ppt_count, "Index", ["Index","索引"])
 
 ppt_count = create_section_slides(prs, my_index_list, ppt_count, "Journal", ["Journal","手帳年曆"],1)
+ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","2025 Overview"], ["Yearly | Overview","年曆總覽"])
+ppt_count = create_yaag_slides(prs, ppt_count)
+ppt_count = create_gc_slides(prs, ppt_count)
+
 ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Calendar"], ["Monthly | Calendar","月行事曆"])
 ppt_count = create_main_calendar_slides(prs, ppt_count)
 
