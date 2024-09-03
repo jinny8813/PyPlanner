@@ -1,11 +1,13 @@
 from attributes.background_color import get_bg_color_info
 from attributes.start_date_day import get_start_day_info
 from attributes.theme_colors import get_theme_colors_info
+from attributes.diary_type import get_diary_type_info
 
 user_choice = {"start_day": "monday",
                "bg_color": "light",
                "language": "lunar",
-               "theme_colors": "mint"}
+               "theme_colors": "mint",
+               "diary_type": "both"}
 
 start_day_info = get_start_day_info(user_choice["start_day"])
 orig_week_list = start_day_info["week_list"]
@@ -30,3 +32,6 @@ if user_choice["language"] != "lunar":
 
 theme_colors_info = get_theme_colors_info(user_choice["theme_colors"])
 orig_theme_colors = theme_colors_info["colors"]
+
+diary_type_info = get_diary_type_info(user_choice["diary_type"])
+orig_template_num = diary_type_info["template_num"]
