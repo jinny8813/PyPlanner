@@ -16,6 +16,7 @@ from features.weekly_timeline import create_timeline_slides
 from features.weekly_grid import create_grid_slides
 from features.weekly_anynotes import create_anynotes_slides
 from features.weekly_overview import create_overview_slides
+from features.weekly_budget import create_budget_slides
 
 my_index_list = []
 ppt_count = 0
@@ -54,6 +55,8 @@ ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","An
 ppt_count = create_anynotes_slides(prs, ppt_count)
 ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Overview"], ["Weekly | Overview","週總覽"])
 ppt_count = create_overview_slides(prs, ppt_count)
+ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Budget"], ["Weekly | Budget","週記帳"])
+ppt_count = create_budget_slides(prs, ppt_count)
 
 ppt_count = create_back_cover_slides(prs, my_index_list, ppt_count, ["The Blueprint","封底"])
 
