@@ -26,6 +26,8 @@ from features.diary import create_diary_slides
 from features.lifestyle import create_collection_slides,create_notebook_slides
 from features.stickers import create_stickers_slides
 
+from links.weekly_todolist import link_todolist_to_diary
+
 my_index_list = []
 ppt_count = 0
 
@@ -57,23 +59,7 @@ ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","He
 ppt_count = create_health_slides(prs, ppt_count)
 ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Energy"], ["Monthly | Energy","月能量管理"])
 ppt_count = create_energy_slides(prs, ppt_count)
-print(2)
-# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","TodoList"], ["Weekly | TodoList","週待辦清單"])
-# ppt_count = create_todolist_slides(prs, ppt_count)
-# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Timeline"], ["Weekly | Timeline","週時間軸"])
-# ppt_count = create_timeline_slides(prs, ppt_count)
-# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Grid"], ["Weekly | Grid","週八分格"])
-# ppt_count = create_grid_slides(prs, ppt_count)
-# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","AnyNotes"], ["Weekly | AnyNotes","週札記"])
-# ppt_count = create_anynotes_slides(prs, ppt_count)
-# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Overview"], ["Weekly | Overview","週總覽"])
-# ppt_count = create_overview_slides(prs, ppt_count)
-# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Budget"], ["Weekly | Budget","週記帳"])
-# ppt_count = create_budget_slides(prs, ppt_count)
-# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Health"], ["Weekly | Health","週健康"])
-# ppt_count = create_w_health_slides(prs, ppt_count)
-# ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Energy"], ["Weekly | Energy","週能量"])
-# ppt_count = create_w_energy_slides(prs, ppt_count)
+
 slide_functions = {
     "TodoList": create_todolist_slides,
     "Timeline": create_timeline_slides,
@@ -96,12 +82,8 @@ journal_types = [
 ]
 for j_type, title_en, title_zh in journal_types:
     if j_type in orig_selected_w_types:
-        print(f"Before create_calendar_slides: ppt_count = {ppt_count}")
         ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal", j_type], [title_en, title_zh])
-        print(f"After create_calendar_slides: ppt_count = {ppt_count}")
-        print(f"Before {j_type} slide function: ppt_count = {ppt_count}")
         ppt_count = slide_functions[j_type](prs, ppt_count)
-        print(f"After {j_type} slide function: ppt_count = {ppt_count}")
 
 ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal","Diary"], ["Daily | Diary","日記"])
 ppt_count = create_diary_slides(prs, ppt_count)
@@ -114,6 +96,8 @@ ppt_count = create_section_slides(prs, my_index_list, ppt_count, "Stickers", ["S
 ppt_count = create_stickers_slides(prs, my_index_list, ppt_count)
 
 ppt_count = create_back_cover_slides(prs, my_index_list, ppt_count, ["The Blueprint","封底"])
+
+link_todolist_to_diary(prs,8,orig_selected_w_types.index("TodoList")+1,5+8*13+len(orig_selected_w_types)*54+2)
 
 print(my_index_list)
 print(ppt_count)
