@@ -21,6 +21,7 @@ from features.weekly_health import create_health_slides as create_w_health_slide
 from features.weekly_energy import create_energy_slides as create_w_energy_slides
 from features.diary import create_diary_slides
 from features.lifestyle import create_collection_slides,create_notebook_slides
+from features.stickers import create_stickers_slides
 
 my_index_list = []
 ppt_count = 0
@@ -75,6 +76,7 @@ ppt_count = create_collection_slides(prs, my_index_list, ppt_count)
 ppt_count = create_notebook_slides(prs, my_index_list, ppt_count)
 
 ppt_count = create_section_slides(prs, my_index_list, ppt_count, "Stickers", ["Stickers","貼紙合集"],3)
+ppt_count = create_stickers_slides(prs, my_index_list, ppt_count)
 
 ppt_count = create_back_cover_slides(prs, my_index_list, ppt_count, ["The Blueprint","封底"])
 
