@@ -1,6 +1,20 @@
 from pptx.util import Pt
+from pptx.enum.text import PP_ALIGN
 
 from set_attribute import orig_font_color_section, orig_font_color_page_title
+
+def set_section_title(slide, section_info):
+    text_top = Pt(216)
+    text_left = Pt(512)
+    text_height = Pt(96)
+    text_width = Pt(512)
+    tb = slide.shapes.add_textbox(text_left, text_top, text_width, text_height)
+    p = tb.text_frame.paragraphs[0]
+    p.text = section_info
+    p.font.size = Pt(96)
+    p.font.name = "Optima"
+    p.font.color.rgb = orig_font_color_section
+    p.alignment = PP_ALIGN.CENTER
 
 def set_chapter_title(slide, chapter_info):
     left = width = height = Pt(118)
