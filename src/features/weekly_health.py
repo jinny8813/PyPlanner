@@ -9,17 +9,17 @@ from set_attribute import orig_start_week,orig_start_date,orig_start_month
 from set_attribute import orig_lunar_calender_count
 from attributes.language import lunar_content
 
-def create_budget_slides(prs, ppt_count):
+def create_health_slides(prs, ppt_count):
     today = today2 = orig_start_date
     this_year = int(orig_start_month.strftime("%Y"))
     lunar_count = orig_lunar_calender_count
     week_count = orig_start_week
     while today < orig_start_date+relativedelta(years=1):
-        layout = prs.slide_layouts[13]
+        layout = prs.slide_layouts[14]
         slide = prs.slides.add_slide(layout)
         if week_count == 1 and today != orig_start_date:
             this_year += 1        
-        set_page_title(slide,"{} Week {} Budget".format(this_year,week_count))
+        set_page_title(slide,"{} Week {} Health".format(this_year,week_count))
         top = Pt(83)
         left = Pt(392)
         height = Pt(20)
