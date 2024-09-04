@@ -7,7 +7,7 @@ user_choice = {"start_day": "monday",
                "bg_color": "light",
                "language": "lunar",
                "theme_colors": "mint",
-               "diary_type": "mediumtodo"}
+               "diary_type": "plentifulboth"}
 
 start_day_info = get_start_day_info(user_choice["start_day"])
 orig_week_list = start_day_info["week_list"]

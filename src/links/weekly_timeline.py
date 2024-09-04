@@ -8,7 +8,7 @@ from set_attribute import orig_start_date,orig_start_month
 from set_attribute import orig_lunar_calender_count
 from attributes.language import lunar_content
 
-def link_todolist_to_diary(prs,m_type_count,w_type_count,diary_page):
+def link_timeline_to_diary(prs,m_type_count,w_type_count,diary_page):
     today = orig_start_date
     diary = orig_start_month
     lunar_count = orig_lunar_calender_count

@@ -27,6 +27,7 @@ from features.lifestyle import create_collection_slides,create_notebook_slides
 from features.stickers import create_stickers_slides
 
 from links.weekly_todolist import link_todolist_to_diary
+from links.weekly_timeline import link_timeline_to_diary
 
 my_index_list = []
 ppt_count = 0
@@ -98,6 +99,7 @@ ppt_count = create_stickers_slides(prs, my_index_list, ppt_count)
 ppt_count = create_back_cover_slides(prs, my_index_list, ppt_count, ["The Blueprint","封底"])
 
 link_todolist_to_diary(prs,8,orig_selected_w_types.index("TodoList")+1,5+8*13+len(orig_selected_w_types)*54+2)
+link_timeline_to_diary(prs,8,orig_selected_w_types.index("Timeline")+1,5+8*13+len(orig_selected_w_types)*54+2)
 
 print(my_index_list)
 print(ppt_count)
