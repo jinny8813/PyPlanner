@@ -28,6 +28,8 @@ from features.stickers import create_stickers_slides
 
 from links.weekly_todolist import link_todolist_to_diary
 from links.weekly_timeline import link_timeline_to_diary
+from links.weekly_grid import link_grid_to_diary
+from links.weekly_anynotes import link_anynotes_to_diary
 
 my_index_list = []
 ppt_count = 0
@@ -100,6 +102,8 @@ ppt_count = create_back_cover_slides(prs, my_index_list, ppt_count, ["The Bluepr
 
 link_todolist_to_diary(prs,8,orig_selected_w_types.index("TodoList")+1,5+8*13+len(orig_selected_w_types)*54+2)
 link_timeline_to_diary(prs,8,orig_selected_w_types.index("Timeline")+1,5+8*13+len(orig_selected_w_types)*54+2)
+link_grid_to_diary(prs,8,orig_selected_w_types.index("Grid")+1,5+8*13+len(orig_selected_w_types)*54+2)
+link_anynotes_to_diary(prs,8,orig_selected_w_types.index("AnyNotes")+1,5+8*13+len(orig_selected_w_types)*54+2)
 
 print(my_index_list)
 print(ppt_count)
