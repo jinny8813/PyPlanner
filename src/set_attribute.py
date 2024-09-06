@@ -7,7 +7,7 @@ user_choice = {"start_day": "monday",
                "bg_color": "light",
                "language": "lunar",
                "theme_colors": "mint",
-               "diary_type": "both"}
+               "diary_type": "plentifulboth"}
 
 start_day_info = get_start_day_info(user_choice["start_day"])
 orig_week_list = start_day_info["week_list"]
@@ -35,3 +35,4 @@ orig_theme_colors = theme_colors_info["colors"]
 
 diary_type_info = get_diary_type_info(user_choice["diary_type"])
 orig_template_num = diary_type_info["template_num"]
+orig_selected_w_types = diary_type_info["selected_w_types"]

@@ -20,19 +20,8 @@ def create_todolist_slides(prs, ppt_count):
         if week_count == 1 and today != orig_start_date:
             this_year += 1       
         set_page_title(slide,"{} Week {} TodoList".format(this_year,week_count))
-        top = Pt(83)
-        left = Pt(152)
-        height = Pt(20)
-        width = Pt(120)
-        min_width = Pt(20)
         for j in range(7):
-            set_date_element(slide,today.strftime("%A"),left, top, width, height)
-            set_date_element(slide,today.strftime("%#d"),left, top+height, min_width, height)
-            if orig_lunar_calender_count != None:
-                set_lunar_element(slide,lunar_content[lunar_count],left+min_width, top+height*1.12, min_width, height)
-                lunar_count += 1
             today += timedelta(days=1)
-            left += width
         week_count +=1
         if week_count>52:
             week_count = 1
