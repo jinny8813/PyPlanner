@@ -37,6 +37,8 @@ from links.weekly_energy import link_energy_to_diary
 
 from links.calendar_diary import link_calendar_to_diary
 from links.calendar_weeks import link_calendar_to_weeks
+from links.topnav_monthly import link_top_nav_monthly
+from links.topnav_weekly import link_top_nav_weekly
 
 monthly_types = [
     ("Calendar", "Monthly | Calendar", "月行事曆"),
@@ -135,6 +137,8 @@ for w_types, title_en, title_zh in weekly_types:
 
 link_calendar_to_diary(prs,5+len(orig_selected_m_types)*13+len(orig_selected_w_types)*54+2)
 link_calendar_to_weeks(prs,5+len(orig_selected_m_types)*13+len(orig_selected_w_types)*54+2)
+link_top_nav_monthly(prs)
+link_top_nav_weekly(prs)
 
 print(my_index_list)
 print(ppt_count)
