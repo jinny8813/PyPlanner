@@ -1,13 +1,29 @@
 def get_diary_type_info(diary_type):
     select_diary_type = {
-        "todo": {
+        "minitodo": {
+            "template_num": None,
+            "selected_w_types": ["ListTodo", "Grid"],
+            "selected_c_types": ["Calendar"]
+        },
+        "minitimeline": {
+            "template_num": None,
+            "selected_w_types": ["Timeline", "Grid"],
+            "selected_c_types": ["Calendar"]
+        },
+        "mediumtodo": {
             "template_num": 16,
+            "selected_w_types": ["ListTodo", "Grid", "AnyNotes", "Budget", "Health", "Energy"],
+            "selected_c_types": ["Calendar", "Finances", "Health", "Energy"]
         },
-        "timeline": {
+        "mediumtimeline": {
             "template_num": 17,
+            "selected_w_types": ["Timeline", "Grid", "AnyNotes", "Budget", "Health", "Energy"],
+            "selected_c_types": ["Calendar", "Finances", "Health", "Energy"]
         },
-        "both": {
+        "plentifulboth": {
             "template_num": 18,
+            "selected_w_types": ["ListTodo", "Timeline", "Grid", "AnyNotes", "Overview", "Budget", "Health", "Energy"],
+            "selected_c_types": ["Calendar","MiniPlanner", "Project", "Tracker", "Gallery", "Finances", "Health", "Energy"]
         }
     }
-    return select_diary_type.get(diary_type, select_diary_type["todo"])
+    return select_diary_type.get(diary_type, select_diary_type["minitodo"])
