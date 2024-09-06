@@ -19,7 +19,7 @@ def create_todolist_slides(prs, ppt_count):
         slide = prs.slides.add_slide(layout)
         if week_count == 1 and today != orig_start_date:
             this_year += 1       
-        set_page_title(slide,"{} Week {} TodoList".format(this_year,week_count))
+        set_page_title(slide,"{} Week {} ListTodo".format(this_year,week_count))
         for j in range(7):
             today += timedelta(days=1)
         week_count +=1
