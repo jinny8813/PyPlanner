@@ -30,7 +30,7 @@ def link_date_element_grid(prs,slide,date_value,left, top, width, height, link_t
     if link_to!= None:
         tb.click_action.target_slide = prs.slides[link_to]
 
-def set_calendar_week_links(prs,slide,week_value,left, top, width, height, link_to):
+def link_calendar_weeks(prs,slide,week_value,left, top, width, height, link_to):
     tb = slide.shapes.add_textbox(left, top, width, height)
     p = tb.text_frame.paragraphs[0]
     p.text = week_value
@@ -38,4 +38,18 @@ def set_calendar_week_links(prs,slide,week_value,left, top, width, height, link_
     p.font.name = "Arial"
     p.font.color.rgb = orig_font_color_element
     p.alignment = PP_ALIGN.CENTER
+    tb.click_action.target_slide = prs.slides[link_to]
+
+def link_top_nav(prs,slide,feature_value,left, top, width, height, link_to):
+    dot = slide.shapes.add_shape(MSO_SHAPE.OVAL,left,top,width,height)
+    dot.fill.solid()
+    dot.fill.fore_color.rgb = orig_nav_bg_color
+    dot.line.color.rgb = orig_nav_bg_color
+    tb = slide.shapes.add_textbox(left, top+height*0.06, width, height)
+    p = tb.text_frame.paragraphs[0]
+    p.text = feature_value
+    p.font.size = Pt(9)
+    p.font.name = "Arial"
+    p.font.color.rgb = orig_nav_bg_font_color
+    p.alignment = PP_ALIGN.CENTER     
     tb.click_action.target_slide = prs.slides[link_to]

@@ -1,7 +1,7 @@
 from pptx.util import Pt
 
 from units.set_elements import set_date_element
-from units.link_elements import set_calendar_week_links
+from units.link_elements import link_calendar_weeks
 from set_attribute import orig_week_number
 from set_attribute import orig_selected_w_types,orig_selected_m_types
 
@@ -27,7 +27,7 @@ def link_calendar_to_weeks(prs,diary_page):
                 week_count -=1
             min_left = Pt(89)-len(orig_selected_w_types)*min_width*0.5
             for index, name in enumerate(orig_selected_w_types):
-                set_calendar_week_links(prs,slide,name[0],min_left, min_top, min_height, min_width, 54*index+week_count+6+len(orig_selected_m_types)*13+1)
+                link_calendar_weeks(prs,slide,name[0],min_left, min_top, min_height, min_width, 54*index+week_count+6+len(orig_selected_m_types)*13+1)
                 min_left += min_width
             top += Pt(100)
             min_top += Pt(100)
