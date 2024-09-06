@@ -3,7 +3,7 @@ from attributes.start_date_day import get_start_day_info
 from attributes.theme_colors import get_theme_colors_info
 from attributes.diary_type import get_diary_type_info
 
-user_choice = {"start_day": "monday",
+user_choice = {"start_day": "sunday",
                "bg_color": "light",
                "language": "lunar",
                "theme_colors": "mint",
