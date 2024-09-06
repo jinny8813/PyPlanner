@@ -9,15 +9,15 @@ from set_attribute import orig_start_month,orig_start_day
 from set_attribute import orig_lunar_diary_count
 from attributes.language import lunar_content
 
-def link_calendar_to_diary(prs,m_type_count,diary_page):
+def link_calendar_to_diary(prs,diary_page):
     today = orig_start_month
     this_month = orig_start_month
     lunar_count = orig_lunar_diary_count
     for slide in prs.slides:
         current_page = prs.slides.index(slide)
-        if current_page>=6+13*m_type_count:
+        if current_page>=6+12+1:
             break
-        if current_page<6+13*(m_type_count-1)+1:
+        if current_page<6+1:
             continue
         top = Pt(103)
         left = Pt(152)

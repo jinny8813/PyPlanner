@@ -2,7 +2,7 @@ def get_diary_type_info(diary_type):
     select_diary_type = {
         "minitodo": {
             "template_num": None,
-            "selected_w_types": ["TodoList", "Grid"],
+            "selected_w_types": ["ListTodo", "Grid"],
             "selected_c_types": ["Calendar"]
         },
         "minitimeline": {
@@ -12,7 +12,7 @@ def get_diary_type_info(diary_type):
         },
         "mediumtodo": {
             "template_num": 16,
-            "selected_w_types": ["TodoList", "Grid", "AnyNotes", "Budget", "Health", "Energy"],
+            "selected_w_types": ["ListTodo", "Grid", "AnyNotes", "Budget", "Health", "Energy"],
             "selected_c_types": ["Calendar", "Finances", "Health", "Energy"]
         },
         "mediumtimeline": {
@@ -22,7 +22,7 @@ def get_diary_type_info(diary_type):
         },
         "plentifulboth": {
             "template_num": 18,
-            "selected_w_types": ["TodoList", "Timeline", "Grid", "AnyNotes", "Overview", "Budget", "Health", "Energy"],
+            "selected_w_types": ["ListTodo", "Timeline", "Grid", "AnyNotes", "Overview", "Budget", "Health", "Energy"],
             "selected_c_types": ["Calendar","MiniPlanner", "Project", "Tracker", "Gallery", "Finances", "Health", "Energy"]
         }
     }
