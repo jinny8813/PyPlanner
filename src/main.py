@@ -41,6 +41,7 @@ from links.topnav_monthly import link_top_nav_monthly
 from links.topnav_weekly import link_top_nav_weekly
 from links.topnav_diary_weeks import link_top_nav_diary_weeks
 from links.downnav import link_down_nav
+from links.index import link_index
 
 monthly_types = [
     ("Calendar", "Monthly | Calendar", "月行事曆"),
@@ -143,6 +144,7 @@ link_top_nav_monthly(prs)
 link_top_nav_weekly(prs)
 link_top_nav_diary_weeks(prs)
 link_down_nav(prs,my_index_list)
+link_index(prs,my_index_list)
 
 print(my_index_list)
 print(ppt_count)
