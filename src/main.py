@@ -1,7 +1,7 @@
 import os
 from pptx import Presentation
 
-from set_attribute import orig_selected_w_types,orig_selected_c_types
+from set_attribute import orig_selected_w_types,orig_selected_m_types
 
 from features.book_cover import create_front_cover_slides, create_back_cover_slides, create_index_slides
 from features.chapter_page import create_calendar_slides, create_section_slides
@@ -36,6 +36,7 @@ from links.weekly_health import link_health_to_diary
 from links.weekly_energy import link_energy_to_diary
 
 from links.calendar_diary import link_calendar_to_diary
+from links.calendar_weeks import link_calendar_to_weeks
 
 monthly_types = [
     ("Calendar", "Monthly | Calendar", "月行事曆"),
@@ -49,7 +50,7 @@ monthly_types = [
 ]
 
 weekly_types = [
-    ("TodoList", "Weekly | TodoList", "週待辦清單"),
+    ("ListTodo", "Weekly | ListTodo", "週待辦清單"),
     ("Timeline", "Weekly | Timeline", "週時間軸"),
     ("Grid", "Weekly | Grid", "週八分格"),
     ("AnyNotes", "Weekly | AnyNotes", "週札記"),
@@ -84,12 +85,13 @@ monthly_slide_functions = {
     "Energy": create_energy_slides
 }
 
-for j_type, title_en, title_zh in monthly_types:
-    ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal", j_type], [title_en, title_zh])
-    ppt_count = monthly_slide_functions[j_type](prs, ppt_count)
+for m_type, title_en, title_zh in monthly_types:
+    if m_type in orig_selected_m_types:
+        ppt_count = create_calendar_slides(prs, my_index_list, ppt_count, ["Journal", m_type], [title_en, title_zh])
+        ppt_count = monthly_slide_functions[m_type](prs, ppt_count)
 
 weekly_slide_functions = {
-    "TodoList": create_todolist_slides,
+    "ListTodo": create_todolist_slides,
     "Timeline": create_timeline_slides,
     "Grid": create_grid_slides,
     "AnyNotes": create_anynotes_slides,
@@ -117,7 +119,7 @@ ppt_count = create_stickers_slides(prs, my_index_list, ppt_count)
 ppt_count = create_back_cover_slides(prs, my_index_list, ppt_count, ["The Blueprint","封底"])
 
 weekly_to_diary_functions = {
-    "TodoList": link_todolist_to_diary,
+    "ListTodo": link_todolist_to_diary,
     "Timeline": link_timeline_to_diary,
     "Grid": link_grid_to_diary,
     "AnyNotes": link_anynotes_to_diary,
@@ -129,9 +131,10 @@ weekly_to_diary_functions = {
 
 for w_types, title_en, title_zh in weekly_types:
     if w_types in orig_selected_w_types:
-        weekly_to_diary_functions[w_types](prs,8,orig_selected_w_types.index(w_types)+1,5+8*13+len(orig_selected_w_types)*54+2)
+        weekly_to_diary_functions[w_types](prs,len(orig_selected_m_types),orig_selected_w_types.index(w_types)+1,5+len(orig_selected_m_types)*13+len(orig_selected_w_types)*54+2)
 
-link_calendar_to_diary(prs,orig_selected_c_types.index("Calendar")+1,5+len(orig_selected_c_types)*13+len(orig_selected_w_types)*54+2)
+link_calendar_to_diary(prs,5+len(orig_selected_m_types)*13+len(orig_selected_w_types)*54+2)
+link_calendar_to_weeks(prs,5+len(orig_selected_m_types)*13+len(orig_selected_w_types)*54+2)
 
 print(my_index_list)
 print(ppt_count)
