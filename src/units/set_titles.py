@@ -1,5 +1,6 @@
 from pptx.util import Pt
 from pptx.enum.text import PP_ALIGN
+from pptx.dml.color import RGBColor
 
 from set_attribute import orig_font_color_section, orig_font_color_page_title
 
@@ -34,7 +35,7 @@ def set_chapter_title(slide, chapter_info):
     p.font.name = "Optima"
     p.font.color.rgb = orig_font_color_section
 
-def set_page_title(slide, title, lunar_text=None):
+def set_page_title(slide, title, lunar_text=None, font_color=None):
     width = height = Pt(24)
     left = Pt(45)
     top = Pt(50)
@@ -43,7 +44,12 @@ def set_page_title(slide, title, lunar_text=None):
     p.text = title
     p.font.size = Pt(24)
     p.font.name = "Optima"
-    p.font.color.rgb = orig_font_color_page_title
+    if font_color == None or font_color == "black":
+        p.font.color.rgb = orig_font_color_page_title
+    elif font_color == "red":
+        p.font.color.rgb = RGBColor(255, 0, 0)
+    else:
+        p.font.color.rgb = RGBColor(0, 0, 255)
     if lunar_text!= None:
         run = p.add_run()
         run.text = " " + lunar_text
