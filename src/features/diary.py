@@ -4,7 +4,7 @@ from dateutil.relativedelta import relativedelta
 import calendar
 
 from units.set_titles import set_page_title
-from units.others import date_type
+from units.weekday import date_type
 from set_attribute import orig_start_month
 from set_attribute import orig_lunar_diary_count
 from set_attribute import orig_template_num

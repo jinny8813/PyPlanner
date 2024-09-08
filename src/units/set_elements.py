@@ -1,6 +1,7 @@
 from pptx.enum.text import PP_ALIGN
 from pptx.util import Pt
 import calendar
+from pptx.dml.color import RGBColor
 
 from set_attribute import orig_font_color_element
 
@@ -13,27 +14,36 @@ def set_date_element_grid(slide,date_value,left, top, width, height):
     p.font.color.rgb = orig_font_color_element
     p.alignment = PP_ALIGN.CENTER
 
-def set_date_element(slide,date_value,left, top, width, height, lunar_text=None):
+def set_date_element(slide,date_value,left, top, width, height, lunar_text=None, font_color=None):
     tb = slide.shapes.add_textbox(left, top, width, height)
     p = tb.text_frame.paragraphs[0]
     p.text = date_value
     p.font.size = Pt(12)
     p.font.name = "Arial"
-    p.font.color.rgb = orig_font_color_element
+    if font_color == None or font_color == "black":
+        p.font.color.rgb = orig_font_color_element
+    elif font_color == "red":
+        p.font.color.rgb = RGBColor(255, 0, 0)
+    else:
+        p.font.color.rgb = RGBColor(0, 0, 255)
     p.alignment = PP_ALIGN.CENTER
     if lunar_text!= None:
         run = p.add_run()
         run.text = " " + lunar_text
         run.font.size = Pt(8)
 
-def set_lunar_element(slide,lunar_text,left, top, width, height):
+def set_lunar_element(slide,lunar_text,left, top, width, height, font_color=None):
     tb = slide.shapes.add_textbox(left, top, width, height)
     p = tb.text_frame.paragraphs[0]
     p.text = lunar_text
     p.font.size = Pt(8)
     p.font.name = "Arial"
-    p.font.color.rgb = orig_font_color_element
-    p.alignment = PP_ALIGN.CENTER
+    if font_color == None or font_color == "black":
+        p.font.color.rgb = orig_font_color_element
+    elif font_color == "red":
+        p.font.color.rgb = RGBColor(255, 0, 0)
+    else:
+        p.font.color.rgb = RGBColor(0, 0, 255)
 
 def set_small_calendar(slide,month_first_day,left, top,week_list):   
     o_left = left
