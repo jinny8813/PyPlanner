@@ -5,6 +5,8 @@ import calendar
 
 from units.set_titles import set_page_title
 from units.set_elements import set_date_element
+from units.weekday import date_type
+from set_attribute import user_choice
 from set_attribute import orig_start_month
 
 def create_project_slides(prs, ppt_count):
@@ -20,8 +22,13 @@ def create_project_slides(prs, ppt_count):
         width = Pt(20)
         for j in range(32):
             if j < calendar.monthrange(this_month.year,this_month.month)[1]:
-                set_date_element(slide,today.strftime("%#d"),left, top, width, height)
-                set_date_element(slide,today.strftime("%a")[0],left, top+height, width, height)
+                if user_choice["language"] == "holiday":
+                    date_details = date_type(today)
+                    set_date_element(slide,today.strftime("%#d"),left, top, width, height,None,date_details[2])
+                    set_date_element(slide,today.strftime("%a")[0],left, top+height, width, height,None,date_details[2])
+                else:
+                    set_date_element(slide,today.strftime("%#d"),left, top, width, height)
+                    set_date_element(slide,today.strftime("%a")[0],left, top+height, width, height)
                 today += timedelta(days=1)
             else:
                 set_date_element(slide,"/",left, top, width, height)

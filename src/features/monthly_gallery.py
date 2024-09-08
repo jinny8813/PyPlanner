@@ -5,6 +5,8 @@ import calendar
 
 from units.set_titles import set_page_title
 from units.set_elements import set_date_element,set_lunar_element
+from units.weekday import date_type,day_type
+from set_attribute import user_choice
 from set_attribute import orig_start_month,orig_lunar_diary_count,orig_start_date,orig_start_day
 from attributes.language import lunar_content
 
@@ -23,7 +25,11 @@ def create_gallery_slides(prs, ppt_count):
         day_left = Pt(92)
         day_width = Pt(120)
         for j in range(7):
-            set_date_element(slide,day.strftime("%A"),day_left+day_width*j, day_top, day_width, height)
+            if user_choice["language"] == "holiday":
+                date_details = day_type(day)
+                set_date_element(slide,day.strftime("%A"),day_left+day_width*j, day_top, day_width, height,None,date_details[2])
+            else:
+                set_date_element(slide,day.strftime("%A"),day_left+day_width*j, day_top, day_width, height)
             day += timedelta(days=1)
         top = Pt(113)
         left = Pt(92)
@@ -38,9 +44,17 @@ def create_gallery_slides(prs, ppt_count):
                 left = Pt(92)
                 if j == 0:
                     top -= height*5
-            set_date_element(slide,today.strftime("%#d"),left, top, width, height)
+            if user_choice["language"] == "holiday":
+                date_details = date_type(today)
+                set_date_element(slide,today.strftime("%#d"),left, top, width, height,None,date_details[2])
+            else:
+                set_date_element(slide,today.strftime("%#d"),left, top, width, height)
             if orig_lunar_diary_count != None:
-                set_lunar_element(slide,lunar_content[lunar_count],left+width, top+height*0.12, width, height)
+                if user_choice["language"] == "holiday":
+                    date_details = date_type(today)
+                    set_lunar_element(slide,f"{lunar_content[lunar_count]}\n{date_details[1]}",left+width*0.6, top+height*0.12, width, height,date_details[2])
+                else:
+                    set_lunar_element(slide,lunar_content[lunar_count],left+width*0.6, top+height*0.12, width, height)
                 lunar_count += 1
             left += width*6
             today += timedelta(days=1)

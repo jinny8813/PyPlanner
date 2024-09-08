@@ -1,8 +1,11 @@
 from pptx.enum.text import PP_ALIGN
 from pptx.util import Pt
 import calendar
+from datetime import timedelta
 from pptx.dml.color import RGBColor
 
+from units.weekday import date_type
+from set_attribute import user_choice
 from set_attribute import orig_font_color_element
 
 def set_date_element_grid(slide,date_value,left, top, width, height):
@@ -48,8 +51,12 @@ def set_lunar_element(slide,lunar_text,left, top, width, height, font_color=None
 def set_small_calendar(slide,month_first_day,left, top,week_list):   
     o_left = left
     width = height = Pt(20)
+    today = month_first_day
     for e in week_list:
-        set_date_element(slide,e,left, top, width, height)
+        if e == "S":
+            set_date_element(slide,e,left, top, width, height,None,"red")
+        else:
+            set_date_element(slide,e,left, top, width, height)
         left += width
     top += height
     for j in range(calendar.monthrange(month_first_day.year,month_first_day.month)[1]):
@@ -63,5 +70,10 @@ def set_small_calendar(slide,month_first_day,left, top,week_list):
             left = o_left 
             if j == 0:
                 top -= height
-        set_date_element(slide,str(j+1),left, top, width, height)
+        if user_choice["language"] == "holiday":
+            date_details = date_type(today)
+            set_date_element(slide,today.strftime("%#d"),left, top, width, height,None,date_details[2])
+        else:
+            set_date_element(slide,today.strftime("%#d"),left, top, width, height)
+        today += timedelta(days=1)
         left += width
