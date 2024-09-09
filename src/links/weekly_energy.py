@@ -4,6 +4,8 @@ from dateutil.relativedelta import relativedelta
 
 from units.set_elements import set_date_element
 from units.link_elements import link_date_element
+from units.weekday import date_type,day_type
+from set_attribute import user_choice
 from set_attribute import orig_start_date,orig_start_month
 from set_attribute import orig_lunar_calender_count
 from attributes.language import lunar_content
@@ -25,34 +27,59 @@ def link_energy_to_diary(prs,m_type_count,w_type_count,diary_page):
         down_top = Pt(403)
         space = Pt(200)
         for j in range(7):
+            date_details = date_type(today)
             if j<3:
                 if orig_lunar_calender_count != None:                    
                     if today>=diary and today<diary+relativedelta(years=1):
-                        link_date_element(prs,slide,today.strftime("%#m/%#d - %a"),left, top, width, height,lunar_content[lunar_count], diary_page)
+                        if user_choice["language"] == "holiday":
+                            link_date_element(prs,slide,today.strftime("%#m/%#d - %a"),left, top, width, height,f"{lunar_content[lunar_count]} {date_details[1]}",diary_page,date_details[2])
+                        else:
+                            link_date_element(prs,slide,today.strftime("%#m/%#d - %a"),left, top, width, height,lunar_content[lunar_count],diary_page)
                         diary_page +=1
                     else:
-                        set_date_element(slide,today.strftime("%#m/%#d - %a"),left, top, width, height,lunar_content[lunar_count])
+                        if user_choice["language"] == "holiday":
+                            set_date_element(slide,today.strftime("%#m/%#d - %a"),left, top, width, height,f"{lunar_content[lunar_count]} {date_details[1]}",date_details[2])
+                        else:
+                            set_date_element(slide,today.strftime("%#m/%#d - %a"),left, top, width, height,lunar_content[lunar_count])
                     lunar_count += 1
                 else:
                     if today>=diary and today<diary+relativedelta(years=1):
-                        link_date_element(prs,slide,today.strftime("%#m/%#d - %a"),left, top, width, height,None, diary_page)
+                        if user_choice["language"] == "holiday":
+                            link_date_element(prs,slide,today.strftime("%#m/%#d - %a"),left, top, width, height,None,diary_page,date_details[2])
+                        else:
+                            link_date_element(prs,slide,today.strftime("%#m/%#d - %a"),left, top, width, height,None,diary_page)
                         diary_page +=1
                     else:
-                        set_date_element(slide,today.strftime("%#m/%#d - %a"),left, top, width, height)
+                        if user_choice["language"] == "holiday":
+                            set_date_element(slide,today.strftime("%#m/%#d - %a"),left, top, width, height,None,date_details[2])
+                        else:
+                            set_date_element(slide,today.strftime("%#m/%#d - %a"),left, top, width, height)
             else:
                 if orig_lunar_calender_count != None:                    
                     if today>=diary and today<diary+relativedelta(years=1):
-                        link_date_element(prs,slide,today.strftime("%#m/%#d - %a"),left, down_top, width, height,lunar_content[lunar_count], diary_page)
+                        if user_choice["language"] == "holiday":
+                            link_date_element(prs,slide,today.strftime("%#m/%#d - %a"),left, down_top, width, height,f"{lunar_content[lunar_count]} {date_details[1]}",diary_page,date_details[2])
+                        else:
+                            link_date_element(prs,slide,today.strftime("%#m/%#d - %a"),left, down_top, width, height,lunar_content[lunar_count],diary_page)
                         diary_page +=1
                     else:
-                        set_date_element(slide,today.strftime("%#m/%#d - %a"),left, down_top, width, height,lunar_content[lunar_count])
+                        if user_choice["language"] == "holiday":
+                            set_date_element(slide,today.strftime("%#m/%#d - %a"),left, down_top, width, height,f"{lunar_content[lunar_count]} {date_details[1]}",date_details[2])
+                        else:
+                            set_date_element(slide,today.strftime("%#m/%#d - %a"),left, down_top, width, height,lunar_content[lunar_count])
                     lunar_count += 1
                 else:
                     if today>=diary and today<diary+relativedelta(years=1):
-                        link_date_element(prs,slide,today.strftime("%#m/%#d - %a"),left, down_top, width, height,None, diary_page)
+                        if user_choice["language"] == "holiday":
+                            link_date_element(prs,slide,today.strftime("%#m/%#d - %a"),left, down_top, width, height,None,diary_page,date_details[2])
+                        else:
+                            link_date_element(prs,slide,today.strftime("%#m/%#d - %a"),left, down_top, width, height,None,diary_page)
                         diary_page +=1
                     else:
-                        set_date_element(slide,today.strftime("%#m/%#d - %a"),left, down_top, width, height)
+                        if user_choice["language"] == "holiday":
+                            set_date_element(slide,today.strftime("%#m/%#d - %a"),left, down_top, width, height,None,date_details[2])
+                        else:
+                            set_date_element(slide,today.strftime("%#m/%#d - %a"),left, down_top, width, height)
             today += timedelta(days=1)
             if j==2:
                 left -= space*3

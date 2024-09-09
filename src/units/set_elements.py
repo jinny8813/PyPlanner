@@ -8,13 +8,18 @@ from units.weekday import date_type
 from set_attribute import user_choice
 from set_attribute import orig_font_color_element
 
-def set_date_element_grid(slide,date_value,left, top, width, height):
+def set_date_element_grid(slide,date_value,left, top, width, height, font_color=None):
     tb = slide.shapes.add_textbox(left, top, width, height)
     p = tb.text_frame.paragraphs[0]
     p.text = date_value
     p.font.size = Pt(24)
     p.font.name = "Arial"
-    p.font.color.rgb = orig_font_color_element
+    if font_color == None or font_color == "black":
+        p.font.color.rgb = orig_font_color_element
+    elif font_color == "red":
+        p.font.color.rgb = RGBColor(255, 0, 0)
+    else:
+        p.font.color.rgb = RGBColor(0, 0, 255)
     p.alignment = PP_ALIGN.CENTER
 
 def set_date_element(slide,date_value,left, top, width, height, lunar_text=None, font_color=None):
