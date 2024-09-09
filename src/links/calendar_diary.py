@@ -5,6 +5,8 @@ import calendar
 
 from units.set_elements import set_lunar_element
 from units.link_elements import link_date_element
+from units.weekday import date_type,day_type
+from set_attribute import user_choice
 from set_attribute import orig_start_month,orig_start_day
 from set_attribute import orig_lunar_diary_count
 from attributes.language import lunar_content
@@ -34,9 +36,17 @@ def link_calendar_to_diary(prs,diary_page):
                 left = Pt(152)
                 if j == 0:
                     top -= height*5
-            link_date_element(prs,slide,today.strftime("%#d"),left, top, width, height,None,diary_page)
+            if user_choice["language"] == "holiday":
+                date_details = date_type(today)
+                link_date_element(prs,slide,today.strftime("%#d"),left, top, width, height,None,diary_page,date_details[2])
+            else:
+                link_date_element(prs,slide,today.strftime("%#d"),left, top, width, height,None,diary_page)
             if orig_lunar_diary_count != None:
-                set_lunar_element(slide,lunar_content[lunar_count],left+width, top+height*0.12, width, height)
+                if user_choice["language"] == "holiday":
+                    date_details = date_type(today)
+                    set_lunar_element(slide,f"{lunar_content[lunar_count]}\n{date_details[1]}",left+width*0.6, top+height*0.12, width, height,date_details[2])
+                else:
+                    set_lunar_element(slide,lunar_content[lunar_count],left+width*0.6, top+height*0.12, width, height)
                 lunar_count += 1
             left += width*6
             today += timedelta(days=1)

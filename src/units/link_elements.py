@@ -1,16 +1,22 @@
 from pptx.enum.text import PP_ALIGN
 from pptx.enum.shapes import MSO_SHAPE
 from pptx.util import Pt
+from pptx.dml.color import RGBColor
 
 from set_attribute import orig_font_color_element,orig_font_color_section,orig_nav_bg_color,orig_nav_bg_font_color
 
-def link_date_element(prs,slide,date_value,left, top, width, height, lunar_text=None, link_to = None):
+def link_date_element(prs,slide,date_value,left, top, width, height, lunar_text=None, link_to = None, font_color=None):
     tb = slide.shapes.add_textbox(left, top, width, height)
     p = tb.text_frame.paragraphs[0]
     p.text = date_value
     p.font.size = Pt(12)
     p.font.name = "Arial"
-    p.font.color.rgb = orig_font_color_element
+    if font_color == None or font_color == "black":
+        p.font.color.rgb = orig_font_color_element
+    elif font_color == "red":
+        p.font.color.rgb = RGBColor(255, 0, 0)
+    else:
+        p.font.color.rgb = RGBColor(0, 0, 255)
     p.alignment = PP_ALIGN.CENTER
     if lunar_text!= None:
         run = p.add_run()
@@ -19,13 +25,18 @@ def link_date_element(prs,slide,date_value,left, top, width, height, lunar_text=
     if link_to!= None:
         tb.click_action.target_slide = prs.slides[link_to]
 
-def link_date_element_grid(prs,slide,date_value,left, top, width, height, link_to = None):
+def link_date_element_grid(prs,slide,date_value,left, top, width, height, link_to = None,font_color=None):
     tb = slide.shapes.add_textbox(left, top, width, height)
     p = tb.text_frame.paragraphs[0]
     p.text = date_value
     p.font.size = Pt(24)
     p.font.name = "Arial"
-    p.font.color.rgb = orig_font_color_element
+    if font_color == None or font_color == "black":
+        p.font.color.rgb = orig_font_color_element
+    elif font_color == "red":
+        p.font.color.rgb = RGBColor(255, 0, 0)
+    else:
+        p.font.color.rgb = RGBColor(0, 0, 255)
     p.alignment = PP_ALIGN.CENTER
     if link_to!= None:
         tb.click_action.target_slide = prs.slides[link_to]

@@ -5,10 +5,12 @@ import calendar
 
 from units.set_titles import set_page_title
 from units.set_elements import set_date_element
+from units.weekday import date_type,day_type
+from set_attribute import user_choice
 from set_attribute import orig_start_month
 
 def create_energy_slides(prs, ppt_count):
-    today2 = orig_start_month
+    today = today2 = orig_start_month
     this_month = orig_start_month
     for i in range(12):
         layout = prs.slide_layouts[7]
@@ -20,8 +22,13 @@ def create_energy_slides(prs, ppt_count):
         side_left = Pt(32)
         for j in range(31):
             if j < calendar.monthrange(this_month.year,this_month.month)[1]:
-                set_date_element(slide,today2.strftime("%#d"),side_left, side_top, width, height)
-                set_date_element(slide,today2.strftime("%a")[0],side_left+width, side_top, width, height)
+                if user_choice["language"] == "holiday":
+                    date_details = date_type(today2)
+                    set_date_element(slide,today2.strftime("%#d"),side_left, side_top, width, height,None,date_details[2])
+                    set_date_element(slide,today2.strftime("%a")[0],side_left+width, side_top, width, height,None,date_details[2])
+                else:
+                    set_date_element(slide,today2.strftime("%#d"),side_left, side_top, width, height)
+                    set_date_element(slide,today2.strftime("%a")[0],side_left+width, side_top, width, height)
                 today2 += timedelta(days=1)
             else:
                 set_date_element(slide,"/",side_left, side_top, width, height)
@@ -33,7 +40,12 @@ def create_energy_slides(prs, ppt_count):
         width = Pt(20)
         for j in range(31):
             if j < calendar.monthrange(this_month.year,this_month.month)[1]:
-                set_date_element(slide,str(j+1),left, top, width, height)
+                if user_choice["language"] == "holiday":
+                    date_details = date_type(today)
+                    set_date_element(slide,today.strftime("%#d"),left, top, width, height,None,date_details[2])
+                else:
+                    set_date_element(slide,today.strftime("%#d"),left, top, width, height)
+                today += timedelta(days=1)
             else:
                 set_date_element(slide,"/",left, top, width, height)
             left += width

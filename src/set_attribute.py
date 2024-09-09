@@ -5,9 +5,9 @@ from attributes.diary_type import get_diary_type_info
 
 user_choice = {"start_day": "sunday",
                "bg_color": "light",
-               "language": "lunar",
+               "language": "holiday",
                "theme_colors": "mint",
-               "diary_type": "mediumtodo"}
+               "diary_type": "plentifulboth"}
 
 start_day_info = get_start_day_info(user_choice["start_day"])
 orig_week_list = start_day_info["week_list"]
@@ -26,7 +26,7 @@ orig_font_color_element = bg_color_info["font_color_element"]
 orig_nav_bg_color = bg_color_info["nav_bg_color"]
 orig_nav_bg_font_color = bg_color_info["nav_bg_font_color"]
 
-if user_choice["language"] != "lunar":
+if user_choice["language"] == "english" or user_choice["language"] == "chinese":
     orig_lunar_calender_count = None
     orig_lunar_diary_count = None
 
