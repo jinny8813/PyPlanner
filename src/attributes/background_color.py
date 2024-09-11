@@ -6,6 +6,7 @@ def get_bg_color_info(bg_color):
             "font_color_section": RGBColor(51, 51, 51),
             "font_color_page_title": RGBColor(92, 92, 92),
             "font_color_element": RGBColor(133, 133, 133),
+            "font_color_little": RGBColor(194, 194, 194),
             "nav_bg_color": RGBColor(214, 214, 214),
             "nav_bg_font_color": RGBColor(92, 92, 92)
         },
@@ -13,6 +14,7 @@ def get_bg_color_info(bg_color):
             "font_color_section": RGBColor(51, 51, 51),
             "font_color_page_title": RGBColor(235, 235, 235),
             "font_color_element": RGBColor(194, 194, 194),
+            "font_color_little": RGBColor(133, 133, 133),
             "nav_bg_color": RGBColor(214, 214, 214),
             "nav_bg_font_color": RGBColor(92, 92, 92)
             }

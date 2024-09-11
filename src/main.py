@@ -43,6 +43,8 @@ from links.topnav_diary_weeks import link_top_nav_diary_weeks
 from links.downnav import link_down_nav
 from links.index import link_index
 
+from links.gn_diary import link_gn_apple_diary,link_gn_google_diary
+
 monthly_types = [
     ("Calendar", "Monthly | Calendar", "月行事曆"),
     ("MiniPlanner", "Monthly | MiniPlanner", "月迷你規劃"),
@@ -145,6 +147,9 @@ link_top_nav_weekly(prs)
 link_top_nav_diary_weeks(prs)
 link_down_nav(prs,my_index_list)
 link_index(prs,my_index_list)
+
+link_gn_apple_diary(prs)
+link_gn_google_diary(prs)
 
 print(my_index_list)
 print(ppt_count)

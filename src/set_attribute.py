@@ -11,6 +11,7 @@ user_choice = {"start_day": "sunday",
 
 start_day_info = get_start_day_info(user_choice["start_day"])
 orig_week_list = start_day_info["week_list"]
+orig_start_time = start_day_info["start_time"]
 orig_start_month = start_day_info["start_month"]
 orig_start_date = start_day_info["start_date"]
 orig_start_day = start_day_info["start_day"]
@@ -23,6 +24,7 @@ bg_color_info = get_bg_color_info(user_choice["bg_color"])
 orig_font_color_section = bg_color_info["font_color_section"]
 orig_font_color_page_title = bg_color_info["font_color_page_title"]
 orig_font_color_element = bg_color_info["font_color_element"]
+orig_font_color_little = bg_color_info["font_color_little"]
 orig_nav_bg_color = bg_color_info["nav_bg_color"]
 orig_nav_bg_font_color = bg_color_info["nav_bg_font_color"]
 

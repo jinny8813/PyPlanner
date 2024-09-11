@@ -1,9 +1,10 @@
-from datetime import date
+from datetime import date,datetime
 
 def get_start_day_info(start_day):
     select_start_day = {
         "monday": {
             "week_list": ['M','T','W','T','F','S','S'],
+            "start_time": datetime(2025, 1, 1, 5, 0),
             "start_month": date(2025, 1, 1),
             "start_date": date(2024, 12, 30),
             "start_day": "Monday",
@@ -26,6 +27,7 @@ def get_start_day_info(start_day):
         },
         "sunday": {
             "week_list": ['S','M','T','W','T','F','S'],
+            "start_time": datetime(2025, 1, 1, 5, 0),
             "start_month": date(2025, 1, 1),
             "start_date": date(2024, 12, 29),
             "start_day": "Sunday",
