@@ -1,7 +1,7 @@
 import os
 from pptx import Presentation
 
-from set_attribute import orig_selected_w_types,orig_selected_m_types
+from set_attribute import orig_selected_w_types,orig_selected_m_types,user_choice
 
 from features.book_cover import create_front_cover_slides, create_back_cover_slides, create_index_slides
 from features.chapter_page import create_calendar_slides, create_section_slides
@@ -44,6 +44,7 @@ from links.downnav import link_down_nav
 from links.index import link_index
 
 from links.gn_diary import link_gn_apple_diary,link_gn_google_diary
+from links.gn_timeline import link_gn_apple_timeline,link_gn_google_timeline
 
 monthly_types = [
     ("Calendar", "Monthly | Calendar", "月行事曆"),
@@ -148,8 +149,11 @@ link_top_nav_diary_weeks(prs)
 link_down_nav(prs,my_index_list)
 link_index(prs,my_index_list)
 
-link_gn_apple_diary(prs)
-link_gn_google_diary(prs)
+if user_choice["outside_links"] != None:
+    link_gn_apple_diary(prs)
+    link_gn_google_diary(prs)
+    link_gn_apple_timeline(prs,len(orig_selected_m_types),orig_selected_w_types.index("Timeline")+1)
+    link_gn_google_timeline(prs,len(orig_selected_m_types),orig_selected_w_types.index("Timeline")+1)
 
 print(my_index_list)
 print(ppt_count)

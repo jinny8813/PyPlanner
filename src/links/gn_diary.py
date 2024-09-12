@@ -29,7 +29,7 @@ def link_gn_google_diary(prs):
     width = Pt(20)
     top = Pt(211.5)
     left = Pt(137)
-    date = orig_start_time
+    date = orig_start_time - timedelta(hours=8)
     year_count = (orig_start_month+relativedelta(years=1)-orig_start_month)
     for slide in prs.slides:
         current_page = prs.slides.index(slide)

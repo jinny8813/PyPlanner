@@ -7,11 +7,13 @@ user_choice = {"start_day": "sunday",
                "bg_color": "light",
                "language": "holiday",
                "theme_colors": "mint",
-               "diary_type": "plentifulboth"}
+               "diary_type": "plentifulboth",
+               "outside_links": "both"}
 
 start_day_info = get_start_day_info(user_choice["start_day"])
 orig_week_list = start_day_info["week_list"]
 orig_start_time = start_day_info["start_time"]
+orig_start_time_2 = start_day_info["start_time_2"]
 orig_start_month = start_day_info["start_month"]
 orig_start_date = start_day_info["start_date"]
 orig_start_day = start_day_info["start_day"]
