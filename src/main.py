@@ -158,4 +158,4 @@ if user_choice["outside_links"] != None:
 print(my_index_list)
 print(ppt_count)
 
-prs.save(f'prep.pptx')
+prs.save(f"BluegaJournal-{user_choice['theme_colors']}-{user_choice['bg_color']}-{user_choice['start_day']}-{user_choice['diary_type']}-{user_choice['language']}-{user_choice['outside_links']}.pptx")

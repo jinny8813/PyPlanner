@@ -47,9 +47,9 @@ def set_page_title(slide, title, lunar_text=None, font_color=None):
     if font_color == None or font_color == "black":
         p.font.color.rgb = orig_font_color_page_title
     elif font_color == "red":
-        p.font.color.rgb = RGBColor(255, 0, 0)
+        p.font.color.rgb = RGBColor(255, 92, 92)
     else:
-        p.font.color.rgb = RGBColor(0, 0, 255)
+        p.font.color.rgb = RGBColor(92, 92, 255)
     if lunar_text!= None:
         run = p.add_run()
         run.text = " " + lunar_text

@@ -3,11 +3,11 @@ from attributes.start_date_day import get_start_day_info
 from attributes.theme_colors import get_theme_colors_info
 from attributes.diary_type import get_diary_type_info
 
-user_choice = {"start_day": "sunday",
+user_choice = {"start_day": "monday202401",
                "bg_color": "light",
                "language": "holiday",
-               "theme_colors": "mint",
-               "diary_type": "plentifulboth",
+               "theme_colors": "timber",
+               "diary_type": "plentifulAll",
                "outside_links": "both"}
 
 start_day_info = get_start_day_info(user_choice["start_day"])

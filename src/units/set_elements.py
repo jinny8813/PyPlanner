@@ -17,9 +17,9 @@ def set_date_element_grid(slide,date_value,left, top, width, height, font_color=
     if font_color == None or font_color == "black":
         p.font.color.rgb = orig_font_color_element
     elif font_color == "red":
-        p.font.color.rgb = RGBColor(255, 0, 0)
+        p.font.color.rgb = RGBColor(255, 92, 92)
     else:
-        p.font.color.rgb = RGBColor(0, 0, 255)
+        p.font.color.rgb = RGBColor(92, 92, 255)
     p.alignment = PP_ALIGN.CENTER
 
 def set_date_element(slide,date_value,left, top, width, height, lunar_text=None, font_color=None):
@@ -31,9 +31,9 @@ def set_date_element(slide,date_value,left, top, width, height, lunar_text=None,
     if font_color == None or font_color == "black":
         p.font.color.rgb = orig_font_color_element
     elif font_color == "red":
-        p.font.color.rgb = RGBColor(255, 0, 0)
+        p.font.color.rgb = RGBColor(255, 92, 92)
     else:
-        p.font.color.rgb = RGBColor(0, 0, 255)
+        p.font.color.rgb = RGBColor(92, 92, 255)
     p.alignment = PP_ALIGN.CENTER
     if lunar_text!= None:
         run = p.add_run()
@@ -49,9 +49,9 @@ def set_lunar_element(slide,lunar_text,left, top, width, height, font_color=None
     if font_color == None or font_color == "black":
         p.font.color.rgb = orig_font_color_element
     elif font_color == "red":
-        p.font.color.rgb = RGBColor(255, 0, 0)
+        p.font.color.rgb = RGBColor(255, 92, 92)
     else:
-        p.font.color.rgb = RGBColor(0, 0, 255)
+        p.font.color.rgb = RGBColor(92, 92, 255)
 
 def set_small_calendar(slide,month_first_day,left, top,week_list):   
     o_left = left

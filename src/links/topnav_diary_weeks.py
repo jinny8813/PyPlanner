@@ -19,6 +19,8 @@ def link_top_nav_diary_weeks(prs):
             week_num = int(date.strftime("%W"))+1
         else:
             week_num = int(date.strftime("%U"))+1
+        if date.strftime("%Y") == "2024":
+            week_num = week_num-1
         if current_page>=6+len(orig_selected_m_types)*13+len(orig_selected_w_types)*54+1+year_count.days:
             break
         if current_page<6+len(orig_selected_m_types)*13+len(orig_selected_w_types)*54+1:

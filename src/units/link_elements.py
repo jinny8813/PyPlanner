@@ -14,9 +14,9 @@ def link_date_element(prs,slide,date_value,left, top, width, height, lunar_text=
     if font_color == None or font_color == "black":
         p.font.color.rgb = orig_font_color_element
     elif font_color == "red":
-        p.font.color.rgb = RGBColor(255, 0, 0)
+        p.font.color.rgb = RGBColor(255, 92, 92)
     else:
-        p.font.color.rgb = RGBColor(0, 0, 255)
+        p.font.color.rgb = RGBColor(92, 92, 255)
     p.alignment = PP_ALIGN.CENTER
     if lunar_text!= None:
         run = p.add_run()
@@ -34,9 +34,9 @@ def link_date_element_grid(prs,slide,date_value,left, top, width, height, link_t
     if font_color == None or font_color == "black":
         p.font.color.rgb = orig_font_color_element
     elif font_color == "red":
-        p.font.color.rgb = RGBColor(255, 0, 0)
+        p.font.color.rgb = RGBColor(255, 92, 92)
     else:
-        p.font.color.rgb = RGBColor(0, 0, 255)
+        p.font.color.rgb = RGBColor(92, 92, 255)
     p.alignment = PP_ALIGN.CENTER
     if link_to!= None:
         tb.click_action.target_slide = prs.slides[link_to]

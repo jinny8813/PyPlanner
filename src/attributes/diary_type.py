@@ -1,29 +1,19 @@
 def get_diary_type_info(diary_type):
     select_diary_type = {
-        "minitodo": {
-            "template_num": None,
-            "selected_w_types": ["ListTodo", "Grid"],
-            "selected_c_types": ["Calendar"]
+        "miniA": {
+            "template_num": 18,
+            "selected_w_types": ["Timeline", "AnyNotes", "Budget", "Health"],
+            "selected_c_types": ["Calendar", "Project", "Health"]
         },
-        "minitimeline": {
-            "template_num": None,
-            "selected_w_types": ["Timeline", "Grid"],
-            "selected_c_types": ["Calendar"]
+        "miniB": {
+            "template_num": 18,
+            "selected_w_types": ["ListTodo", "Grid", "Budget", "Energy"],
+            "selected_c_types": ["Calendar", "Tracker", "Energy"]
         },
-        "mediumtodo": {
-            "template_num": 16,
-            "selected_w_types": ["ListTodo", "Grid", "AnyNotes", "Budget", "Health", "Energy"],
-            "selected_c_types": ["Calendar", "Finances", "Health", "Energy"]
-        },
-        "mediumtimeline": {
-            "template_num": 17,
-            "selected_w_types": ["Timeline", "Grid", "AnyNotes", "Budget", "Health", "Energy"],
-            "selected_c_types": ["Calendar", "Finances", "Health", "Energy"]
-        },
-        "plentifulboth": {
+        "plentifulAll": {
             "template_num": 18,
             "selected_w_types": ["ListTodo", "Timeline", "Grid", "AnyNotes", "Overview", "Budget", "Health", "Energy"],
             "selected_c_types": ["Calendar","MiniPlanner", "Project", "Tracker", "Gallery", "Finances", "Health", "Energy"]
         }
     }
-    return select_diary_type.get(diary_type, select_diary_type["minitodo"])
+    return select_diary_type.get(diary_type, select_diary_type["miniA"])

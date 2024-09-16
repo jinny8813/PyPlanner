@@ -28,7 +28,10 @@ def link_timeline_to_diary(prs,m_type_count,w_type_count,diary_page):
         for j in range(7):
             day_details = day_type(today)
             date_details = date_type(today)
-            set_date_element(slide,today.strftime("%A"),left, top, width, height, None,day_details[2])
+            if user_choice["language"] == "holiday":
+                set_date_element(slide,today.strftime("%A"),left, top, width, height, None,day_details[2])
+            else:
+                set_date_element(slide,today.strftime("%A"),left, top, width, height, None,None)
             if today>=diary and today<diary+relativedelta(years=1):
                 if user_choice["language"] == "holiday":
                     link_date_element(prs,slide,today.strftime("%#d"),left, top+height, min_width, height,None,diary_page,date_details[2])
