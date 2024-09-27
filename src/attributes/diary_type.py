@@ -10,9 +10,19 @@ def get_diary_type_info(diary_type):
             "selected_w_types": ["ListTodo", "Grid", "Budget", "Energy"],
             "selected_c_types": ["Calendar", "Tracker", "Energy"]
         },
+        "miniC": {
+            "template_num": 18,
+            "selected_w_types": ["ListTodo", "Timeline", "Grid"],
+            "selected_c_types": ["Calendar", "MiniPlanner"]
+        },
         "plentifulAll": {
             "template_num": 18,
             "selected_w_types": ["ListTodo", "Timeline", "Grid", "AnyNotes", "Overview", "Budget", "Health", "Energy"],
+            "selected_c_types": ["Calendar","MiniPlanner", "Project", "Tracker", "Gallery", "Finances", "Health", "Energy"]
+        },
+        "pinkoi": {
+            "template_num": 18,
+            "selected_w_types": ["ListTodo", "Grid", "AnyNotes", "Overview", "Budget", "Health", "Energy"],
             "selected_c_types": ["Calendar","MiniPlanner", "Project", "Tracker", "Gallery", "Finances", "Health", "Energy"]
         }
     }

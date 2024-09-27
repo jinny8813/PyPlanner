@@ -41,5 +41,5 @@ def link_gn_google_diary(prs):
             new_date = date + timedelta(hours=1)
             dt = date.strftime("%Y%m%dT%H%M%SZ")
             ndt = new_date.strftime("%Y%m%dT%H%M%SZ")
-            link_gn_google(slide,left, top+height*i, width, height,f"shortcuts://run-shortcut/?name=BluegaJournal&input=Blue02-{dt}/{ndt}")
+            link_gn_google(slide,left, top+height*i, width, height,f"https://calendar.google.com/calendar/u/0/r/eventedit?dates={dt}/{ndt}")
             date = new_date
